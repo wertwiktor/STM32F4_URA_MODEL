@@ -7,7 +7,7 @@
 
 
 void DAC1_Config(int BLOCKSIZE, uint32_t *OutputBuffer);
-void DAC2_init(void);
-void DAC2_set(uint16_t n);
+
+void DAC2_Config(int BLOCKSIZE, uint32_t *OutputBuffer);
 
 #endif //DAC_H
