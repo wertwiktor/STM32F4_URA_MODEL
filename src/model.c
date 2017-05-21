@@ -48,5 +48,4 @@ double calculateResponse(double input) {
 	w[2] = b3 * input - a3 * y;
 	return y;
 }
-}
 

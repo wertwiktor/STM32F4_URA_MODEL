@@ -46,7 +46,11 @@ void DMA2_Stream0_IRQHandler(void) //Przerwanie DMA2 - kana³ od ADC1
 		GPIO_ToggleBits(GPIOD, GPIO_Pin_13);
 	}
 
-	OutputBuffer[0][0] = calculateResponse(x);
+	y = (b0 * x + w[0]) / (b + c + d + 1);
+		w[0] = b1 * x + w[1] - a1 * y;
+		w[1] = b2 * x + w[2] - a2 * y;
+		w[2] = b3 * x - a3 * y;
+	OutputBuffer[0][0] = y;//calculateResponse(x);
 
 	if (DMA_GetITStatus(DMA2_Stream0, DMA_IT_TCIF0)) {
 		DMA_ClearITPendingBit(DMA2_Stream0, DMA_IT_TCIF0);
@@ -73,7 +77,7 @@ int main(void) {
 	initializeParameters();
 
 	while (1) {
-		InputBuffer;
-		OutputBuffer;
+		//InputBuffer;
+		//OutputBuffer;
 	}
 }
